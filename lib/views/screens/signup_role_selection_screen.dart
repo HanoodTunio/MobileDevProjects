@@ -40,7 +40,7 @@ class SignupRoleSelectionScreen extends StatelessWidget {
   }
 
   /**
-   * This method builds the role options for the user to select from.
+   * This method builds the role options for the user_profile.dart to select from.
    */
   Widget _buildRoleOptions(BuildContext context) {
     return Container(
@@ -84,7 +84,7 @@ class SignupRoleSelectionScreen extends StatelessWidget {
           // CustomRoleOption widget for User
           CustomRoleOption(
               role: "User",
-              assetPath: 'assets/user.png',
+              assetPath: 'assets/user_profile.dart.png',
               onTap: () => SignupRoleSelectionController()
                   .navigateToUserSignup(context)),
         ],

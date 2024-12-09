@@ -35,7 +35,7 @@ class AuthService {
   }
 
   /**
-   * Register a new user with the given email and password by hitting  endpoint.
+   * Register a new user_profile.dart with the given email and password by hitting  endpoint.
    *
    */
   Future<bool> register(String userame,String email, String password) async {
@@ -65,7 +65,7 @@ class AuthService {
     }
   }
 
-  /// Send a password reset link to the user's email address
+  /// Send a password reset link to the user_profile.dart's email address
   Future<bool> sendPasswordResetLink(String email) async {
     // Simulate API request - replace with actual HTTP request logic
     await Future.delayed(const Duration(seconds: 2));

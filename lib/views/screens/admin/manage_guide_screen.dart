@@ -1,11 +1,24 @@
 // lib/views/screens/manage_guides_screen.dart
 
 import 'package:flutter/material.dart';
-import '../widgets/guide_row.dart';
+import '../../../models/guide_details_model.dart';
+import '../../widgets/admin/guide_row.dart';
 import 'guide_details_screen.dart';
 
 class ManageGuidesScreen extends StatelessWidget {
   const ManageGuidesScreen({super.key});
+
+  Color _getStatusColor(String status) {
+    switch (status) {
+      case "Approved":
+        return Colors.green;
+      case "Rejected":
+        return Colors.red;
+      case "Pending":
+      default:
+        return Colors.orange; // Suitable color for pending
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,11 +34,12 @@ class ManageGuidesScreen extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 10),
             const Text(
               "Manage Guides",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
             ),
-            const SizedBox(height: 10),
+            const SizedBox(height: 20),
             Expanded(
               child: Container(
                 decoration: BoxDecoration(
@@ -52,11 +66,13 @@ class ManageGuidesScreen extends StatelessWidget {
                       child: ListView.builder(
                         itemCount: 5, // Replace with the actual number of guides
                         itemBuilder: (context, index) {
+                          final status = index == 2 ? "Approved" : index == 4 ? "Rejected" : "Pending";
                           return GuideRow(
                             srNo: (index + 1).toString(),
                             guideId: "023-34-001",
                             guideName: "Shahzaib",
-                            status: index == 2 ? "Approved" : index == 4 ? "Rejected" : "Pending",
+                            status: status,
+                            statusColor: _getStatusColor(status), // Pass status color
                             onActionTap: () {
                               showDialog(
                                 context: context,
@@ -64,14 +80,25 @@ class ManageGuidesScreen extends StatelessWidget {
                               );
                             },
                             onRowTap: () {
-                              // Navigate to the GuideDetailsScreen with details
+                              // Navigate to GuideDetailsScreen with GuideDetails instance
                               Navigator.push(
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => GuideDetailsScreen(
-                                    guideId: "023-34-001",
-                                    guideName: "Shahzaib",
-                                    status: index == 2 ? "Approved" : index == 4 ? "Rejected" : "Pending",
+                                    guideDetails: GuideDetails(
+                                      id: "023-34-001",
+                                      username: "Shahzaib",
+                                      profilePicture: "https://example.com/profile.jpg",
+                                      bio: "A passionate guide with extensive experience.",
+                                      contactInfo: "+123456789",
+                                      email: "guide@example.com",
+                                      experience: "5 years",
+                                      language: "English, Spanish",
+                                      specialties: "Historical tours, Food tours",
+                                      certificate: "Certified Guide",
+                                      socialMediaLinks: "@guideprofile",
+                                      status: status,
+                                    ),
                                   ),
                                 ),
                               );

@@ -14,9 +14,9 @@ class ForgotPasswordController {
     emailController.dispose();
   }
 
-  /// Method to send a password reset link to the user's email address.
+  /// Method to send a password reset link to the user_profile.dart's email address.
   /// It takes the BuildContext of the screen as a parameter.
-  /// It validates the email address and sends a password reset link to the user's email.
+  /// It validates the email address and sends a password reset link to the user_profile.dart's email.
   Future<void> sendPasswordResetLink(BuildContext context) async {
     final email = emailController.text.trim();
 

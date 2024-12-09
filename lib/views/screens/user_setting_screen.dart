@@ -67,7 +67,7 @@ class _UserSettingsScreenState extends State<UserSettingsScreen> {
     super.didChangeDependencies();
     final userController = Provider.of<UserController>(context, listen: false);
 
-    // Load the user data and populate controllers if data is loaded successfully
+    // Load the user_profile.dart data and populate controllers if data is loaded successfully
     if (userController.user == null) {
       userController.loadUserProfile().then((_) {
         if (userController.user != null) {

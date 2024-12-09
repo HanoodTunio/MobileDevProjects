@@ -7,6 +7,9 @@ import 'package:seyahat_app/views/screens/login_screen.dart';
 import 'package:seyahat_app/views/screens/search_guide_screen.dart';
 import 'package:seyahat_app/views/screens/user_notification_screen.dart';
 import 'package:seyahat_app/views/screens/user_setting_screen.dart';
+import 'controllers/guide_controller.dart';
+import 'controllers/guide_message_controller.dart';
+import 'controllers/guide_notification_controller.dart';
 import 'controllers/message_controller.dart';
 import 'controllers/notification_controller.dart';
 import 'core/theme/app_theme.dart';
@@ -19,11 +22,15 @@ void main() {
         ChangeNotifierProvider(create: (_) => UserController()..loadUserProfile()),
         ChangeNotifierProvider(create: (_) => MessageController()),
         ChangeNotifierProvider(create: (_) => NotificationController()),
+        ChangeNotifierProvider(create: (_) => GuideNotificationController()),
+        ChangeNotifierProvider(create: (_) => GuideMessageController()),
+        ChangeNotifierProvider(create: (_) => GuideController()),
       ],
       child: MyApp(),
     ),
   );
 }
+
 
 class MyApp extends StatelessWidget {
   @override

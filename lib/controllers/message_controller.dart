@@ -13,7 +13,7 @@ class MessageController extends ChangeNotifier {
     MessageModel(
       sender: "Peter Parker",
       message: "Check out my new design!",
-      profileImage: 'assets/user.png',
+      profileImage: 'assets/user_profile.dart.png',
       count: "1",
       timestamp: DateTime.now().subtract(Duration(hours: 1)), // 1 hour ago
     ),

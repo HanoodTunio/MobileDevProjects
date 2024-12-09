@@ -9,7 +9,7 @@ import '../widgets/custom_button.dart'; // Custom button widget
 import '../widgets/custom_password_field.dart'; // Password field widget
 import '../widgets/custom_text.dart'; // Custom text widget
 import '../widgets/custom_textfield_widget.dart';
-import 'admin_dashboard_screen.dart'; // Custom text field widget
+import 'admin/admin_dashboard_screen.dart'; // Custom text field widget
 
 class LoginScreen extends StatefulWidget {
   final VoidCallback onLoginSuccess;
@@ -53,7 +53,7 @@ class _LoginPageState extends State<LoginScreen> {
         MaterialPageRoute(builder: (context) => const AdminDashboardScreen()),
       );
     } else {
-      // Regular user login
+      // Regular user_profile.dart login
       final isSuccess = await _loginController.login(context);
       if (isSuccess) {
         widget.onLoginSuccess();

@@ -3,9 +3,9 @@ import '../services/auth/auth_service.dart';
 import '../views/widgets/custom_snackbar_widget.dart';
 
 /// Controller class for the User sign-up screen. This class contains
-/// the logic for handling user sign-up. It takes the user input from the
-/// text fields and sends it to the AuthService to create a new user.
-/// It has a method to handle the user sign-up and a method to dispose
+/// the logic for handling user_profile.dart sign-up. It takes the user_profile.dart input from the
+/// text fields and sends it to the AuthService to create a new user_profile.dart.
+/// It has a method to handle the user_profile.dart sign-up and a method to dispose
 class UserSignupController{
 
   // Text editing controllers for the input fields in the sign-up form
@@ -30,10 +30,10 @@ class UserSignupController{
   });
 
 
-  /// Register a new user with the given email and password by hitting  endpoint
+  /// Register a new user_profile.dart with the given email and password by hitting  endpoint
   /// @param context The BuildContext of the screen
   /// @return A Future that resolves to void
-  /// @throws Exception if the user creation fails
+  /// @throws Exception if the user_profile.dart creation fails
   /// @throws Exception if any of the fields are empty
 Future<void> handleUserSignup(BuildContext context) async {
 
@@ -48,9 +48,9 @@ Future<void> handleUserSignup(BuildContext context) async {
       return;
     }
 
-    /// Make a request to the server to create a new user
-    /// The register method returns a boolean value indicating whether the user was created successfully
-    /// or not. If the user is created successfully, show a success message and navigate to the login screen.
+    /// Make a request to the server to create a new user_profile.dart
+    /// The register method returns a boolean value indicating whether the user_profile.dart was created successfully
+    /// or not. If the user_profile.dart is created successfully, show a success message and navigate to the login screen.
     bool isUserCreated = await authService.register(
       usernameController.text.trim(),
       emailController.text.trim(),
@@ -76,7 +76,7 @@ Future<void> handleUserSignup(BuildContext context) async {
     }
   }
 
-/// Validate the email address entered by the user.
+/// Validate the email address entered by the user_profile.dart.
 void dispose() {
     usernameController.dispose();
     emailController.dispose();

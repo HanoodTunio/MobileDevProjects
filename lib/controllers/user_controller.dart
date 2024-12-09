@@ -11,7 +11,7 @@ class UserController extends ChangeNotifier {
   UserModel? get user => _user;
   bool get isLoading => _isLoading;
 
-  // Load the user profile data from the API
+  // Load the user_profile.dart profile data from the API
   Future<void> loadUserProfile() async {
     _isLoading = true;
     notifyListeners();
@@ -19,14 +19,14 @@ class UserController extends ChangeNotifier {
     try {
       _user = await _userService.getUserProfile();
     } catch (e) {
-      print("Error loading user profile: $e");
+      print("Error loading user_profile.dart profile: $e");
     }
 
     _isLoading = false;
     notifyListeners();
   }
 
-  // Update the user profile by sending it to the API
+  // Update the user_profile.dart profile by sending it to the API
   Future<void> updateUserProfile(UserModel updatedUser) async {
     _isLoading = true;
     notifyListeners();
@@ -35,7 +35,7 @@ class UserController extends ChangeNotifier {
       await _userService.updateUserProfile(updatedUser);
       _user = updatedUser;
     } catch (e) {
-      print("Error updating user profile: $e");
+      print("Error updating user_profile.dart profile: $e");
     }
 
     _isLoading = false;

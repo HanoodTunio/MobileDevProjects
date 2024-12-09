@@ -37,6 +37,7 @@ dependencies:
   file_picker: ^5.2.6
   permission_handler: ^10.2.0
   web_socket_channel: ^2.1.0
+  get: ^4.6.5
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -75,6 +76,8 @@ flutter:
   - assets/view.png
   - assets/profile.png
   - assets/user2.png
+  - assets/flag.jpg
+  - assets/success.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

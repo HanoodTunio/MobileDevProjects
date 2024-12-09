@@ -1,8 +1,8 @@
-// lib/views/screens/admin_dashboard_screen.dart
-
 import 'package:flutter/material.dart';
-import '../widgets/admin_action_card.dart';
+import '../../widgets/admin/admin_action_card.dart';
+import 'issue_list_screen.dart';
 import 'manage_guide_screen.dart';
+
 
 class AdminDashboardScreen extends StatelessWidget {
   const AdminDashboardScreen({super.key});
@@ -14,9 +14,11 @@ class AdminDashboardScreen extends StatelessWidget {
     );
   }
 
-
-  void _onIssueResolution() {
-    print("Issue Resolution clicked");
+  void onIssueResolution(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const IssueListScreen()), // Navigate to IssueListScreen
+    );
   }
 
   @override
@@ -47,12 +49,12 @@ class AdminDashboardScreen extends StatelessWidget {
             AdminActionCard(
               title: "Manage Guide",
               count: 2,
-              onPressed: () => onManageGuide(context), // Wrap in an anonymous function
+              onPressed: () => onManageGuide(context),
             ),
             AdminActionCard(
               title: "Issue Resolution",
               count: 1,
-              onPressed: _onIssueResolution,
+              onPressed: () => onIssueResolution(context), // Call the navigation function
             ),
           ],
         ),
